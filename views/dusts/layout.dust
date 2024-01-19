@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- HOA EasyPay Application</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='api/pay1b.css')}}">
+    <script src="{{url_for('static', filename='api/pay1b.js')}}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top scrolling-navbar">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav">
+        <a class="nav-link  " href="/bot/alf?lic=1">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link " href="/bot/reg?lic=1">Register <span class="sr-only">(current)</span></a>
+
+        <a class="nav-link " href="/">Payables</a>
+        <a class="nav-link " href="/bot/presq1">Enter Payment</a>
+
+</div>
+
+
+
+</div>
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+
+        <a class="nav-link " href="/logout">LogOut  <span class="glyphicon glyphicon-log-out"></span></a>
+
+</li>
+
+</ul>
+</nav>
+
+
+
+
+
+<div class="container body-content">
+
+    <hr />
+    <footer>
+        <p>&copy; - HOA Easy Pay 2022-2023</p>
+    </footer>
+</div>
+
+
+
+
+<script>
+$(document).ready(function () {
+    $(".nav-link").bind("click", function (event) {
+        //event.preventDefault();
+        var clickedItem = $(this);
+        $(".nav-link").each(function () {
+            $(this).removeClass("active");
+        });
+        clickedItem.addClass("active");
+    });
+});
+</script>
+
+</body>
+
+
+</html>

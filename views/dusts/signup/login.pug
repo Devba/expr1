@@ -1,0 +1,13 @@
+html
+    head
+        title Login alf
+    body
+        if(message)
+            h4 #{message}
+        form(action = "login" method = "POST")
+            input(name = "id" type = "text" required placeholder = "User ID")
+            input(name = "password" type = "password" required placeholder = "Password")
+            button(type = "Submit") Log in
+
+        form(action = "signup" method = "GET")
+            button(type = "Submit") Sign up

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<%- include('layout2', {user: "lll"}); %>
+
+
+  <head>
+    <title><%= title    %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title    %></h1>
+    <p>Welcome  --- to <%= title    %></p>
+
+    <div class="row row-cols-2">
+      <div class="col">1 of 2</div>
+      <div class="col"  style="height: 25%;margin-top: 300px;">
+        <%- include('login', {title: "titulo"}); %>
+      </div>
+    </div>
+
+    <div class="row row-cols-2">
+      <div class="col">1 of 4</div>
+      <div class="col">2 of 4</div>
+      <div class="col">3 of 4</div>
+      <div class="col">4 of 4</div>
+    </div>
+
+    <div class="row row-cols-3">
+      <div class="col">1 of 6</div>
+      <div class="col">2 of 6</div>
+      <div class="col">
+
+
+      </div>
+      <div class="col">4 of 6</div>
+      <div class="col">5 of 6</div>
+      <div class="col">6 of 6</div>
+    </div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">Sidebar content</div>
+        <div class="col-md-8 col-sm-6" id="demo">Article content</div>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,30 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top scrolling-navbar">
+    <a class="navbar-brand" href="#">{{session["hoaname"]}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav">
+        <a class="nav-link  " href="/bot/alf?lic={{session['urlic']}}">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link " href="/bot/reg?lic={{session['urlic']}}">Register <span class="sr-only">(current)</span></a>
+
+    <a class="nav-link " href="/">Payables</a>
+    <a class="nav-link " href="/bot/presq1">Enter Payment</a>
+
+</div>
+
+
+
+</div>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+
+            <a class="nav-link " href="/logout">LogOut  <span class="glyphicon glyphicon-log-out"></span></a>
+
+        </li>
+
+    </ul>
+</nav>

@@ -1,0 +1,100 @@
+
+
+
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<script src="{{ url_for('static', filename='js/indexbo.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+<div class="container">
+    <div style="margin-top: 40px;">
+        <center><h1>{{titulo}}</h1></center></div>
+    <h4>HOA - EasyPay is an electronic Credit Card payment service powered by {{banktext}}, an accredited and secure international Credit Card payment service and administrated by   HOA-e-Solutions, LLC.  For  PRIVACY Details see the the PRIVACY POLICY button below.</h4>
+    <p>With HOA - EasyPay you can pay your Annual Dues, Special Assessments, and any Fines or Late Fees via any Credit Card.  </p>
+    <p>A Service Fee applies and the fees will be added to the total amount charged.  The service fees will be calculated and shown on the following pages for your review prior to making payment</p>
+</div>
+
+<div class="container">
+    <div class="row" align="center">
+        <div class=" col-sm-6">
+            <h2><p>Instructions</p></h2>
+            <p>Please fill in all the entry boxes below.  </p>
+            <center>{{util.flashed_messages(dismissible=True)}}</center>
+            {{ wtf.quick_form(form,  button_map={'submit_button': 'primary'})}}
+
+            <div class="row">
+                <div class=" col-sm-8">
+
+                </div>
+
+            </div>
+
+
+            <button type="button" onclick=
+                    {% if bankproc=="FCB" %}
+            "ppfcb()"
+            {% else %}
+            "ppevo()"
+            {% endif  %}
+
+
+
+            class="btn btn-info">PRIVACY POLICY</button>
+            <button type="button" onclick="showcontact({{mail}},{{tel}})" class="btn btn-info">Contact Us</button>
+
+
+        </div>
+        {% if not showregisterdiv %}
+        <div class="col-sm-6 align-self-end " style="margin-bottom: 150px;">
+
+            {% endif  %}
+
+
+
+            {% if showregisterdiv %}
+
+            <div class="col-sm-6 align-self-start " >
+                <center><h2>Registration is required:</h2></center>
+                <p>If you have not already registered with HOA - EasyPay OR need to change your Password then select the Registration button below:</p>
+
+                <p><button type="button" class="btn btn-primary" id="btstep2" onclick="window.location.href ='/bot/reg?lic={{urlic}}'">Register</button></p>
+                {% else %}
+
+
+                <div class="row align-self-end">
+
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        Password are required to be <strong>identical</strong>, be
+                        <strong>8 characters</strong> in length , contain at least <strong>1 digit </strong> and  at least 1 <strong>upper case letter</strong> </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        {% endif  %}
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{{fixes.ie8()}}
+{% endblock %}
