@@ -11,6 +11,8 @@ console.log("Port serving ----" + port);
 
 var server = http.createServer(app);
 
+app.use("/checklic2",require("../mods/dbs/chlicRoutes"));
+
 /** * Listen on provided port, on all network interfaces. */
 
 server.listen(port);

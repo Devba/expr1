@@ -1,8 +1,9 @@
 var express = require('express');
-//var app = require('../public/javascripts/login');
+//var app = require('../');
 var router = express.Router();
 var ddbb = require('../mods/dbs/checklicControl');
 
+//app.set('view engine', 'ejs');
 
 
 router.get('/layout', function(req, res, next) {

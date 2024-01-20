@@ -1,6 +1,6 @@
 
-var rsvp = require('es6-promise');
-var Promise = rsvp.Promise;
+var RSVP = require('rsvp');
+var Promise = RSVP.Promise;
 
 
 function dieToss() {

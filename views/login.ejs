@@ -8,13 +8,15 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log("donexxxxx");
+                    console.log(this.response);
+                    sweetAlert("de vuelta");
 //document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-             xhttp.open("POST", "http://localhost:5000/checklogin", true);
+             xhttp.open("POST", "/checklogin", true);
             xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            var params = 'orem=ipsum&name=binny';
+            //const formData = new FormData("f1");
+            var params = $("#lname")[0].value;
             xhttp.send(params);
 
         }
@@ -26,9 +28,9 @@
 
 <div class="login-box">
     <h2>Login</h2>
-    <form>
+    <form name ="f1">
         <div class="user-box">
-            <input type="text" name="" required="" id="lname">
+            <input type="text" name="nombre" required="" id="lname">
             <label>Hoa registered last name</label>
         </div>
 

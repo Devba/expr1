@@ -1,6 +1,7 @@
 const Post = require("./Post");
 
 exports.ch=async(req,res,next) =>{
+    req.query={ln:"a1f1fbc4-599",LicenseType:"HOA"}
     try {
         if (typeof req.query.ln == 'undefined') {
             // the variable is defined
