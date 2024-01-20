@@ -5,7 +5,7 @@ var debug = require('debug')('expr1:server');
 var http = require('http');
 
 
-var port = normalizePort(process.env.PORT || '5000');
+var port = 5000;//normalizePort(process.env.PORT || '5000');
 //app.set('port', 5001);
 console.log("Port serving ----" + port);
 
@@ -22,15 +22,9 @@ server.on('listening', onListening);
 function normalizePort(val) {
     var port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
+    if (isNaN(port)) {   }// named pipe  return val; 
 
-    if (port >= 0) {
-        // port number
-        return port;
-    }
+    if (port >= 0) {      }// port number  return port;
 
     return false;
 }

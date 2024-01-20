@@ -51,7 +51,7 @@ router.all('/checklogin', function(req, res, next) {
     //ddbb.main();
     req.query={ln:"a1f1fbc4-599",LicenseType:"HOA"}
     var d =  ddbb.checklic(req,res,"console.log('iii')")
-    res.send("ajax")
+   // res.send(d)
 });
 
 
