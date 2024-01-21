@@ -1,4 +1,5 @@
 const Post = require("./Post");
+var session = require('express-session');
 
 exports.checklic=async(req,res,next) =>{
     try {
@@ -33,8 +34,13 @@ exports.checklic=async(req,res,next) =>{
             console.log(datetime);
 
             //res.status(200).end({lic})
-            let r=Object.values(lic["0"]).toString();
+            if (lic.length==0){res.status(200).end("Not a valid License")}else
+            {  let r=Object.values(lic["0"]).toString();
+            req.session.hoainfo=r;
+            //res.render('start', { title: 'Mi login post' });
             res.status(200).end(r);
+        }
+            //res.status(200).end(r);
             // res.status(200).json({lic});
         }
         else if(LicType=="MGT"){

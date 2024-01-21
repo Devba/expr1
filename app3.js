@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
+
 var signuprouter = require('./routes/signup');
 
 var app = express();
@@ -16,7 +17,7 @@ app.use( session( {
     /* Aquí irían los atributos de nuestra sesión, como claves,     * cómo se guarda, tiempo de expiración, etc...
      */
 
-    secret: 'your-secret-key',    resave: false,    saveUninitialized: true,
+    secret: 'your-ayayayaa-key',    resave: false,    saveUninitialized: true,
 }));
 
 // view engine setup
@@ -35,10 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use("/checklic",require("./mods/dbs/chlicRoutes"));
-
-
-
 app.use('/', indexRouter);
+var x={x:1};
 app.use('/su', signuprouter);
 //app.use('/users', usersRouter);
 
