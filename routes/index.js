@@ -2,6 +2,7 @@ var express = require('express');
 //var app = require('../');
 var router = express.Router();
 var ddbb = require('../mods/dbs/checklicControl');
+var dbbbLogin = require('../mods/dbs/checkloginControl');
 
 //app.set('view engine', 'ejs');
 
@@ -46,13 +47,14 @@ router.get('/ind', function(req, res, next) {
     let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
     res.render('index', { title: 'Express' });
 });
-
-router.all('/checklogin', function(req, res, next) {
+let multer = require('multer');
+let upload = multer();
+router.post('/checklogin', upload.fields([]), function(req, res, next) {
     //let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
     //res.render('index', { title: 'Express' });
     //ddbb.main();
-    req.query={ln:"a1f1fbc4-599",LicenseType:"HOA"}
-    var d =  ddbb.checklic(req,res,"console.log('iii')")
+    //req.query={ln:"a1f1fbc4-599",LicenseType:"HOA"}
+    var d =  dbbbLogin.checklogin(req,res,"console.log('iii')")
    // res.send(d)
 });
 

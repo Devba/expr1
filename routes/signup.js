@@ -6,16 +6,17 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 const express = require("express");
 var router = express.Router();
+var ddbb=require("../mods/dbs/control2")
 
 
 
-var Users = [];
+var Users = [1,1];
 
 
 
 router.get('/signup', function(req, res){
     res.render('dusts/signup/signup',{
-        message: "algo hay que poner"});
+        message: "Registrese"});
 });
 
 router.post('/signup', function(req, res){
@@ -55,21 +56,31 @@ router.get('/login', function(req, res){
 
 router.post('/login', function(req, res){
     console.log(Users);
+    let found=false;
+    req.query.ln="2222";
+    req.query.LicenseType="HOA"
+    let db=ddbb.ch(req,res);
     if(!req.body.id || !req.body.password){
         res.render('dusts/signup/login', {message: "Please enter both id and password"});
     } else {
         Users.filter(function(user){
             if(user.id === req.body.id && user.password === req.body.password){
                 req.session.user = user;
-                res.redirect('su/protected_page');
+                //res.redirect('protected_page');
+                found=true;
+                res.render('dusts/signup/protected_page');
+
             }
-            else
-            {
-                //res.render('dusts/signup/login', {message: "Invalid credentials!"});
-            }
+
+
+               // res.render('dusts/signup/login', {message: "Invalid credentials!"});
+
         });
+        if (found){return}
         res.render('dusts/signup/login', {message: "Invalid credentials!"});
+        return
     }
+    console.log("Aaaa")
 });
 
 router.all('/logout', function(req, res){
