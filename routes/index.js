@@ -13,7 +13,8 @@ router.get('/layout', function(req, res, next) {
 
 
 router.get('/start', function(req, res, next) {
-    res.render('start', { title: 'Express' });
+    const hoainfo = req.session.hoainfo.split(",");
+    res.render('start', { title: req.session.hoainfo.split(",")[16]});
 });
 
 router.get('/loginx', function(req, res, next) {
@@ -31,8 +32,8 @@ router.get('/loginform', function(req, res, next) {
   res.render('loginform', { title: 'Express Login v2' });
 });
 
-router.get('/xxx', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+router.get('/inicio', function(req, res, next) {
+    res.render('inicio', { title: 'Express' });
 
 
 
@@ -56,6 +57,17 @@ router.post('/checklogin', upload.fields([]), function(req, res, next) {
     var d =  dbbbLogin.checklogin(req,res,"console.log('iii')")
    // res.send(d)
 });
+
+router.all('/checkLic', function(req, res, next) {
+    //let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
+    //res.render('index', { title: 'Express' });
+    //ddbb.main();
+    var l=req.body.license;
+    req.query={ln:l,LicenseType:"HOA"}
+    var d =  ddbb.checklic(req,res,"console.log('iii')")
+   // res.send(d)
+});
+
 
 
 router.get('/bot/alf/', function(req, res, next) {
