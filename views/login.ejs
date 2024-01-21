@@ -9,14 +9,20 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
-                    sweetAlert("de vuelta");
+                    sweetAlert(this.response);
 //document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-             xhttp.open("POST", "/checklogin", true);
-            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+             xhttp.open("POST", "/checklogin",true);
+            //xhttp.setRequestHeader('Content-type', 'application/json')
             //const formData = new FormData("f1");
-            var params = $("#lname")[0].value;
+            let params = new FormData(document.getElementsByName("f1")[0]);
+            //xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            //xhttp.send("aaaa");
+            //xhttp.body=JSON.stringify({ "license": 1, "response": { "name": "Tester" } });
+            //xhttp.body=JSON.stringify(params);
+            //xhttp.send(JSON.stringify({ "license": 1, "response": { "name": "Tester" } }));
+            var p=JSON.stringify(params);
             xhttp.send(params);
 
         }
@@ -28,14 +34,14 @@
 
 <div class="login-box">
     <h2>Login</h2>
-    <form name ="f1">
-        <div class="user-box">
+    <form name ="f1" enctype="multipart/form-data">
+        <div class="user-box" >
             <input type="text" name="nombre" required="" id="lname">
             <label>Hoa registered last name</label>
         </div>
 
         <div class="user-box">
-            <input type="text" name="" required="">
+            <input type="text" name="account" required="true">
             <label>Account</label>
         </div>
 
@@ -45,7 +51,7 @@
         </div>
 
         <div class="user-box">
-            <input type="password" name="" required="">
+            <input type="password" name="passw" required="">
             <label>Password</label>
         </div>
 
