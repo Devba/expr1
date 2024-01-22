@@ -57,19 +57,27 @@ Swal.fire({
     showLoaderOnConfirm: true,
     preConfirm: async (login) => {
     try {
-    const xgithubUrl = `  https://api.github.com/users/${login}   `;
-    const githubUrl = "/checkLic/${login}";
+    //const githubUrl = `  https://api.github.com/users/${login}   `;
+   // const githubUrl = "/checklic/"+login;
+    const githubUrl = "/checklic";
 
 
-    const response = await fetch(githubUrl);
+    const response = await fetch(githubUrl, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({a: 1, b: 'Textual content'})
+    });
     if (!response.ok) {
         return Swal.showValidationMessage(`
-        //${JSON.stringify(await response.json())}
-        ${JSON.stringify(await response)}
+        ${JSON.stringify(await response.json())}
+        //${JSON.stringify(await response)}
     `);
     }
-    return response;
-    //return response.json();
+    //return response;
+    return response.json();
     } catch (error) {
     Swal.showValidationMessage(`
     Request failed: ${error}
@@ -79,10 +87,17 @@ Swal.fire({
     allowOutsideClick: () => !Swal.isLoading()
 }).then((result) => {
 if (result.isConfirmed) {
-Swal.fire({
-title: `${result.value.login}'s avatar`,
-imageUrl: result.value.avatar_url
-});
+    if(result.value.noderes=="Incorrect HOA License"){
+        Swal.showValidationMessage(`
+                 Request failed: algo pasa
+         `);
+    }
+    else {
+        Swal.fire({
+            title: `${result.value.login}'s avatar`,
+            imageUrl: result.value.avatar_url
+        });
+    }
 }
 });
 </script>
