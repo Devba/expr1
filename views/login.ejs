@@ -3,13 +3,21 @@
     <link rel='stylesheet' href='/stylesheets/login.css' />
 
 
+
     <script>
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
-                    sweetAlert(this.response);
+                    if (this.response=="OK"){
+                        window.location.replace("/principal")
+
+                    }else{
+                        sweetAlert(this.response);
+
+                    }
+
 //document.getElementById("demo").innerHTML = this.responseText;
                 }
             };

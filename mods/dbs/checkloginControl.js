@@ -13,7 +13,13 @@ exports.checklogin=async(req,res,next) =>{
         let [r, _] = await consul.checklogin(vaccount);
         let l=r.length;
         console.log(l);
-        res.status(200).end("estoy aqui"+l);
+        if (l>0){
+            res.status(200).end("OK");
+        }
+        else{
+            res.status(200).end("Account is not correct");
+        }
+
 
 
     } catch(error){res.send(error.message)}

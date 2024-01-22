@@ -5,7 +5,7 @@ var debug = require('debug')('expr1:server');
 var http = require('http');
 
 
-var port = 5001;//normalizePort(process.env.PORT || '5000');
+var port = 5000;//normalizePort(process.env.PORT || '5000');
 //app.set('port', 5001);
 console.log("Port serving ----" + port);
 

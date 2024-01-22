@@ -41,6 +41,9 @@ var x={x:1};
 app.use('/su', signuprouter);
 //app.use('/users', usersRouter);
 
+app.use("/hive",require("./routes/hiverouter"));
+app.use("/tests",require("./routes/tests"));
+
 
 // catch 404 and forward to error handler
 /*

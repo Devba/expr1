@@ -6,6 +6,16 @@ var dbbbLogin = require('../mods/dbs/checkloginControl');
 
 //app.set('view engine', 'ejs');
 
+router.get('/principal', function(req, res, next) {
+    //req.session.destroy();
+    res.render('principal', { title: 'Logado' });
+});
+
+
+router.get('/logout', function(req, res, next) {
+    req.session.destroy();
+    res.render('inicio', { title: 'Express' });
+});
 
 router.get('/layout', function(req, res, next) {
   res.render('layout', { title: 'Express' });
@@ -13,8 +23,15 @@ router.get('/layout', function(req, res, next) {
 
 
 router.get('/start', function(req, res, next) {
-    const hoainfo = req.session.hoainfo.split(",");
-    res.render('start', { title: req.session.hoainfo.split(",")[16]});
+    if(req.session.hoainfo==undefined){
+        res.render('inicio', { title: 'Express' });
+    }else
+    {
+        const hoainfo = req.session.hoainfo.split(",");
+        res.render('start', { title: req.session.hoainfo.split(",")[16]});
+
+    }
+
 });
 
 router.get('/loginx', function(req, res, next) {

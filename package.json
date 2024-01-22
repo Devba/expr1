@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@hiveio/keychain": "^1.0.7",
     "@rodrigogs/mysql-events": "^0.6.0",
     "adaro": "~1.0.4",
     "bcrypt": "^5.1.1",
@@ -16,7 +17,9 @@
     "ejs": "^3.1.9",
     "express": "~4.16.1",
     "express-session": "^1.17.3",
+    "hive-tx": "^5.2.3",
     "http-errors": "~1.6.3",
+    "keychain-sdk": "^0.6.1",
     "mariadb": "^3.2.3",
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
