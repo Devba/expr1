@@ -14,13 +14,18 @@ function callhome(){
 
 
         function loadDoc(req) {
+          Swal.showLoading();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
+              
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
                     if (this.response=="Not a valid License"){
+                      Swal.hideLoading();
                         //return("Not a valid message")
                       //Swal.fire({    title: this.response});
+                     // Swal.hideLoading("lklkl");
+                      Swal.showValidationMessage(this.response)
                     }else{
                                  
                     window.location.replace("/start?lic=1")
@@ -54,6 +59,7 @@ $( document ).ready(function() {
     confirmButtonText: 'Yes, send me there!',
     input: "text",
     inputLabel: "Please enter License",
+    icon:"info",
     showClass: {
     popup: `
       animate__animated
@@ -67,7 +73,16 @@ $( document ).ready(function() {
       animate__fadeOutDown
       animate__faster
     `
+  },
+  preConfirm: () => {
+   /* const username = usernameInput.value
+    const password = passwordInput.value
+    if (!username || !password) {
+      Swal.showValidationMessage(`Please enter username and password`)
+    }
+    return { username, password }*/
   }
+  
  }).then(function(result) {
    if (result.isConfirmed) {
     //callhome();

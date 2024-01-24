@@ -36,7 +36,7 @@ exports.checklic=async(req,res,next) =>{
             console.log(datetime);
 
             //res.status(200).end({lic})
-            if (lic.length==0){res.status(200).end("Not a valid License")}else
+            if (lic.length==0){res.status(200).end("Not a valid License" )}else
             { 
                  let r=Object.values(lic["0"]).toString();
             req.session.hoainfo=lic["0"];

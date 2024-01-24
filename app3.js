@@ -19,8 +19,7 @@ app.use( session( {
 }));
 
 // view engine setup
-//app.engine('dust', adaro.dust());
-//app.set('views', path.join(__dirname, 'views'));
+//app.engine('dust', adaro.dust());//app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');//app.set('view engine', 'pug');
 
 app.use(logger('dev'));app.use(logger('tiny'));
@@ -33,9 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/checklic",require("./mods/dbs/chlicRoutes"));
 app.use('/', indexRouter);
-var x={x:1};
-app.use('/su', signuprouter);
-//app.use('/users', usersRouter);
+
+app.use('/su', signuprouter);//app.use('/users', usersRouter);
 
 app.use("/hive",require("./routes/hiverouter"));
 app.use("/tests",require("./routes/tests"));
