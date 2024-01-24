@@ -1,6 +1,7 @@
 
-    <title>{title}</title>
+    <title><center><% title %></title></center>
     <link rel='stylesheet' href='/stylesheets/login.css' />
+
 
 
     <script>
@@ -9,7 +10,14 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
-                    sweetAlert(this.response);
+                    if (this.response=="OK"){
+                        window.location.replace("/principal")
+
+                    }else{
+                        sweetAlert(this.response);
+
+                    }
+
 //document.getElementById("demo").innerHTML = this.responseText;
                 }
             };

@@ -5,7 +5,9 @@ exports.checklic=async(req,res,next) =>{
     try {
         if (typeof req.query.ln == 'undefined') {
             // the variable is defined
-            res.status(200).end("no ln ");
+            //res.status(200).end("no ln "); Volver a poner esto para que funcione inicioa
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ noderes: "Incorrect HOA License" }, null, 3));
             return
 
         }
@@ -34,9 +36,10 @@ exports.checklic=async(req,res,next) =>{
             console.log(datetime);
 
             //res.status(200).end({lic})
-            if (lic.length==0){res.status(200).end("Not a valid License")}else
-            {  let r=Object.values(lic["0"]).toString();
-            req.session.hoainfo=r;
+            if (lic.length==0){res.status(200).end("Not a valid License" )}else
+            { 
+                 let r=Object.values(lic["0"]).toString();
+            req.session.hoainfo=lic["0"];
             //res.render('start', { title: 'Mi login post' });
             res.status(200).end(r);
         }

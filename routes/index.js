@@ -6,6 +6,45 @@ var dbbbLogin = require('../mods/dbs/checkloginControl');
 
 //app.set('view engine', 'ejs');
 
+router.get('/principal', function(req, res, next) {
+    //req.session.destroy();
+    if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
+    }else
+    {
+        //hoainfo=req.session.hoainfo.split(",");
+        accountinfo=req.session.accountinfo;
+        var keys=Object.keys(accountinfo)
+        let valores=Object.values(accountinfo)
+        let  hoakeys=Object.keys(req.session.hoainfo)
+        let hoaval=Object.values(req.session.hoainfo)
+
+    res.render('principal', { title: req.session.hoainfo.Client_Corporate_Name,
+        keys:keys,valores:valores,
+    hoakeys:hoakeys,hoaval:hoaval
+
+});
+    }
+});
+
+
+router.all('/newpayment', function(req, res, next) {
+    //req.session.destroy();
+    /*
+    if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
+    }else
+    {
+        //var consul = require('../mods/dbs/consultas');
+        res.end(200)("evrything is fine ")
+
+
+    }*/
+    res.status(200).end("aqui")
+});
+
+router.get('/logout', function(req, res, next) {
+    req.session.destroy();
+    res.render('inicio', { title: 'Express' });
+});
 
 router.get('/layout', function(req, res, next) {
   res.render('layout', { title: 'Express' });
@@ -13,24 +52,19 @@ router.get('/layout', function(req, res, next) {
 
 
 router.get('/start', function(req, res, next) {
-    const hoainfo = req.session.hoainfo.split(",");
-    res.render('start', { title: req.session.hoainfo.split(",")[16]});
+
+
+    if(req.session.hoainfo==undefined){
+        res.render('inicio', { title: 'Express' });
+    }else
+    {//const hoainfo = req.session.hoainfo.split(",");//  const hoainfo = req.session.hoainfo.split(",");
+        
+        res.render('start', { title: req.session.hoainfo.Client_Corporate_Name});
+    }
+
 });
 
-router.get('/loginx', function(req, res, next) {
-  res.render('login', { title: 'Mi login 1' });
-});
-router.all('/loginp', function(req, res, next) {
-    res.render('login', { title: 'Mi login post' });
-});
-/*
-router.get('/loginv3', function(req, res, next) {
-  res.render('loginv3', { title: 'Express Login v2' });
-});
-*/
-router.get('/loginform', function(req, res, next) {
-  res.render('loginform', { title: 'Express Login v2' });
-});
+
 
 router.get('/inicio', function(req, res, next) {
     res.render('inicio', { title: 'Express' });
@@ -43,24 +77,23 @@ router.get('/index', function(req, res, next) {
 });
 
 
-router.get('/ind', function(req, res, next) {
-    let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
-    res.render('index', { title: 'Express' });
-});
+
 let multer = require('multer');
 let upload = multer();
+
 router.post('/checklogin', upload.fields([]), function(req, res, next) {
-    //let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
-    //res.render('index', { title: 'Express' });
-    //ddbb.main();
-    //req.query={ln:"a1f1fbc4-599",LicenseType:"HOA"}
-    var d =  dbbbLogin.checklogin(req,res,"console.log('iii')")
-   // res.send(d)
+   
+ 
+    if(req.session.hoainfo==undefined){
+        res.status(200).end("You are not logged in , please do it !");
+    }else {
+        var d =  dbbbLogin.checklogin(req,res,"console.log('iii')")
+    }
+   
 });
 
 router.all('/checkLic', function(req, res, next) {
-    //let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
-    //res.render('index', { title: 'Express' });
+    //let x=loadDoc('https://api.publicapis.org/entries', "myFunction"); //res.render('index', { title: 'Express' });
     //ddbb.main();
     var l=req.body.license;
     req.query={ln:l,LicenseType:"HOA"}
@@ -90,6 +123,38 @@ router.get('/bot/alf/', function(req, res, next) {
     }
 
 })
+
+
+
+
+router.get('/', function(req, res, next) { 
+     res.render('inicio', { title: 'Express' });
+});
+
+
+
+//old
+
+router.get('/xxxind', function(req, res, next) {
+    let x=loadDoc('https://api.publicapis.org/entries', "myFunction");
+    res.render('index', { title: 'Express' });
+});
+
+
+router.get('/xxxloginx', function(req, res, next) {
+    res.render('login', { title: 'Mi login 1' });
+  });
+  router.all('/xxxloginp', function(req, res, next) {
+      res.render('login', { title: 'Mi login post' });
+  });
+  /*
+  router.get('/loginv3', function(req, res, next) {
+    res.render('loginv3', { title: 'Express Login v2' });
+  });
+  */
+  router.get('/xxxloginform', function(req, res, next) {
+    res.render('loginform', { title: 'Express Login v2' });
+  });
 
 
 module.exports = router;
