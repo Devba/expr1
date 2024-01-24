@@ -14,6 +14,7 @@ exports.checklogin=async(req,res,next) =>{
         let l=r.length;
         console.log(l);
         if (l>0){
+            req.session.accountinfo=r[0];
             res.status(200).end("OK");
         }
         else{
