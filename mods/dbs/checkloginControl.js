@@ -8,11 +8,24 @@ function iterate(req,hoas){
         res=true
     }
     return res
+   
 }
 
+const chpass=async() => {
+
+    let chpassw=require("../../public/javascripts/chpw2");
+    let r=await chpassw.checklic()
+    console.log("ffff")
+    return(r)
+}
+
+exports.aaa="soy yo";
 
 exports.checklogin=async(req,res,next) =>{
     try {
+
+        
+
         if (typeof req.body.nombre == 'undefined') { res.status(200).end("no ln "); return }
         if (typeof req.body.mail == 'undefined') { res.status(200).end("no mail "); return }
         if (typeof req.body.passw == 'undefined') { res.status(200).end("no passw "); return }
@@ -25,10 +38,14 @@ exports.checklogin=async(req,res,next) =>{
         if (r.length>1)
 
         var vfound=iterate(req,r)
+        
         if (!vfound){
             res.status(200).end("Account is not correct");
         }else {
+            var passw=r[0].Res_Password
+            var  y=await chpass()
             if (r.length>1){console.log("ojo , hay mas de una cuenta ")}
+
             req.session.accountinfo=r[0];
             res.status(200).end("OK");
 
@@ -42,3 +59,35 @@ exports.checklogin=async(req,res,next) =>{
     } catch(error){res.send(error.message)}
 };
 
+exports.checkloginKYC=async(req,res,next) =>{
+    try {
+
+        
+        let vaccount=req.query.ln;
+        //let LicType=req.query.LicenseType
+
+
+        let [r, _] = await consul.checkKYlogin(vaccount);
+        //if (r.length>1)
+
+        let vfound=1;//iterate(req,r)
+        
+        if (!vfound){
+            res.status(200).end("Account is not correct");
+        }else {
+            var passw=r[0].Res_Password
+            var  y=await chpass()
+            if (r.length>1){console.log("ojo , hay mas de una cuenta ")}
+
+            req.session.accountinfo=r[0];
+            res.status(200).end("OK");
+
+        }
+
+
+
+
+
+
+    } catch(error){res.send(error.message)}
+};

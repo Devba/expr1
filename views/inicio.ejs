@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
     <%- include('layout2', {user: "lll"}); %>
- 
+    <%- include('inicio/swtests', {user: "lll"}); %>
+     
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel='stylesheet' href='/stylesheets/style.css' />
 
 
 <script>
    
-function callhome(){
-    console.log("me llaman")
-}
 
 
         function loadDoc(req) {
@@ -20,80 +18,58 @@ function callhome(){
               
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
-                    if (this.response=="Not a valid License"){
-                      Swal.hideLoading();
-                        //return("Not a valid message")
-                      //Swal.fire({    title: this.response});
-                     // Swal.hideLoading("lklkl");
-                      Swal.showValidationMessage(this.response)
-                    }else{
-                                 
+                    if (this.response=="Not a valid License"){                      //Swal.hideLoading();
+                       
+                        miform.icon="error"
+                        Swal.fire(miform).then(function(result) {
+                            if (result.isConfirmed) {
+                              
+                              var res=loadDoc(result.value);                      //  Swal.showValidationMessage("algo ha pasado");
+                              console.log(res.value)                              //location.assign("https://stackoverflow.com/")
+                            }
+                          })
+                        
+                        Swal.showValidationMessage(this.response + ",Please Log in again ")
+
+                     
+                    }else{                           
                     window.location.replace("/start?lic=1")
                     }
-                  //  Swal.fire({    title: this.response});
-//document.getElementById("demo").innerHTML = this.responseText;
+      
                 }
             };
-             xhttp.open("POST", "/checkLic", true);
-            //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+             xhttp.open("POST", "/checkLic", true); //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             //const formData = new FormData("f1");
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhttp.send(JSON.stringify({ "license": req, "response": { "name": "Tester" } }));
-            //var params = req;
-            //xhttp.send(req);
+            xhttp.send(JSON.stringify({ "license": req, "response": { "name": "Tester" } })); //var params = req;            //xhttp.send(req);
 
         }
    
     
 console.log("klkl");
 $( document ).ready(function() {
-    console.log( "ready!" );
 
-    Swal.fire({
-    title: 'Welcome to EasyPay',
-    text: 'Please insert the HOA License ',
-    icon: 'success',
-    showCancelButton: false,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, send me there!',
-    input: "text",
-    inputLabel: "Please enter License",
-    icon:"info",
-    showClass: {
-    popup: `
-      animate__animated
-      animate__fadeInUp
-      animate__faster
-    `
-  },
-  hideClass: {
-    popup: `
-      animate__animated
-      animate__fadeOutDown
-      animate__faster
-    `
-  },
-  preConfirm: () => {
-   /* const username = usernameInput.value
-    const password = passwordInput.value
-    if (!username || !password) {
-      Swal.showValidationMessage(`Please enter username and password`)
-    }
-    return { username, password }*/
-  }
-  
- }).then(function(result) {
-   if (result.isConfirmed) {
-    //callhome();
-    var res=loadDoc(result.value);
-     //  Swal.showValidationMessage("algo ha pasado");
-    console.log("2222")
-     //location.assign("https://stackoverflow.com/")
-   }
- });
-})
- 
+
+    console.log( "ready!" );
+    var tempDivElement = document.createElement("div");
+
+    // Set the HTML content with the given value
+    tempDivElement.innerHTML = miform;    //var mf=miform.replace(/(\r\n|\n|\r)/gm, "");
+
+
+    Swal.fire(miform).then(function(result) {
+        if (result.isConfirmed) {
+          //callhome();
+          var res=loadDoc(result.value);
+          //  Swal.showValidationMessage("algo ha pasado");
+          console.log("swal back log ")
+          //location.assign("https://stackoverflow.com/")
+        }
+      })
+      })
+
+
+
 
 </script>
 </html>

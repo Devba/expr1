@@ -18,6 +18,12 @@ router.get('/h2', async function(req, res, next) {
     //const login =  await keychain.login();
     res.render('hive/h2');
 });
+router.get('/mainv3', async function(req, res, next) {
+
+
+    //const login =  await keychain.login();
+    res.render('hive/keychain/mainv3');
+});
 
 router.get('/', function(req, res, next) {
 

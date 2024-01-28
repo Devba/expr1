@@ -1,9 +1,85 @@
-// Send Handshake event
-console.log("olaaaa");
-$('#sw-handshake').click(function () {
+
+
+
+console.log("olaaaa desde hivekeychain modulo");
+
+
+function getrespay(url){
+ 
+  fetch(url)
+  .then((response) => {
+    console.log(response);
+    window.location.replace("/principal?lic=1")
+    // handle the response
+  })
+  .catch(function() {
+    // handle the error
+    console.log("popopop")
+  });
+
+}
+
+
+
+
+$('#bhive').click(function () {
+  try {
     hive_keychain.requestHandshake(function () {
       console.log('Handshake received!');
-    });
+    });}
+    catch(error){
+      console.log(error);
+      Swal.fire("no hay hive")
+      return false
+    }
+    
+
+try { var r=hive_keychain.requestEncodeMessage(
+  $("#keychname").val(),
+  "hoamanager",
+  "#prueba ",
+  "Posting",
+  function (response) {
+    console.log('main js response - verify key');
+
+    console.log(response);
+    if (response.success){
+      miform.html="Confirmed! , Wait while retrieving account info from server "
+      Swal.fire(miform);
+      Swal.showLoading();
+
+    }else{
+      swnofounde.html="error dont have priviledges ";
+      Swal.fire(swnofounde);
+     
+    }
+    
+   
+  }
+);} catch(error){
+  console.log(error)
+}
+console.log("after bhive");
+user=$("#keychname").val()
+url="/checkKYlogin?user="+user
+mres=getrespay(url);
+//Swal.close(miform)
+
+
+
+
+  });
+$('#sw-handshake').click(function () {
+  try {
+    hive_keychain.requestHandshake(function () {
+      console.log('Handshake received!');
+    });}
+    catch(error){
+      console.log(error);
+      Swal.fire("no hay hive")
+      
+    }
+
   });
   
   // All transactions are sent via a swRequest event.
