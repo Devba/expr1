@@ -40,7 +40,7 @@ exports.checklogin=async(req,res,next) =>{
         var vfound=iterate(req,r)
         
         if (!vfound){
-            res.status(200).end("Account is not correct");
+            res.status(201).end("Account is not correct");
         }else {
             var passw=r[0].Res_Password
             var  y=await chpass()
@@ -70,7 +70,7 @@ exports.checkloginKYC=async(req,res,next) =>{
         let [r, _] = await consul.checkKYlogin(vaccount);
         //if (r.length>1)
 
-        let vfound=1;//iterate(req,r)
+        let vfound=(r.length>0);//iterate(req,r)
         
         if (!vfound){
             res.status(200).end("Account is not correct");

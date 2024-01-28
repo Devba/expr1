@@ -1,0 +1,237 @@
+
+
+
+.form-container{
+    max-width:960px;
+    margin:auto;
+}
+body, *{
+    font-family:'Roboto', serif;
+}
+.form-section{
+    border:1px solid #eaeaea;
+    padding:30px 10px;
+    margin-bottom:40px;
+    margin-top:150px;
+    box-shadow:1px 1px 10px 6px #eee;
+}
+.form-section input, .form-section textarea, .form-section select{
+    box-shadow:1px 1px 10px 0px #ddd;
+    color:#999;
+    border:1px solid #eee;
+}
+.form-section input:focus{
+    border:1px solid #ed1f4f;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(237,31,79,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(237,31,79,.6);
+}
+.form-section input[type="checkbox"]{
+    box-shadow:0 0 0 0;
+    visibility:hidden;
+    display:none;
+}
+.form-section label {
+    margin-right: 30px;
+    font-size: 13px;
+    margin-top:0;
+    margin-bottom:15px;
+    position:relative;
+}
+.form-section input[type="checkbox"] + label:before {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    content: "\00a0";
+    display: inline-block;
+    font: 15px/1em sans-serif;
+    height: 15px;
+    margin: 0 0 0 0;
+    padding: 0;
+    vertical-align: top;
+    left: -20px;
+    width: 15px;
+}
+.form-section h2{
+    font-size:18px;
+    color:#000000;
+    margin-bottom:20px;
+}
+.form-section .save-cancel h2{
+    text-align:center;
+}
+.form-section .save-cancel .labels+.submit-button a, .form-section .information + .save-cancel a, .form-section .client-number + .save-cancel a{
+    margin:0;
+}
+.form-section .save-cancel .technical-support{
+    margin-top:20px;
+}
+.form-section .save-cancel .technical-support h2{
+    text-align:left;
+}
+.form-section h4{
+    font-size:15px;
+    color:#000;
+}
+.form-section img{
+    max-width:200px;
+}
+.form-section  p{
+    margin-top:25px;
+    font-size:14px;
+    color:#000;
+}
+.form-section .client-text{
+    padding-right:0;
+}
+.form-section .client-text p{
+    margin-top:10px;
+    margin-bottom:0;
+}
+.form-section .establish p{
+    margin-top:0;
+}
+.form-section .establish p a{
+    color:#23527c;
+}
+.form-section .client-number{
+    margin-bottom:20px;
+}
+.form-section .client-submit.save-cancel a{
+    min-width:auto;
+    margin:0;
+}
+.form-section .thank-you h2{
+    margin-bottom:10px;
+}
+.form-section .thank-you p{
+    margin-top:15px;
+}
+
+.form-section .information .col-md-6, .form-section .information .col-md-4{
+    margin-bottom:20px;
+}
+.form-section .save-cancel .labels{
+    margin-left:20px;
+}
+.form-section .save-cancel a{
+    background:#ed1f4f;
+    border:1px solid #ed1f4f;
+    color:#fff;
+    width:auto;
+    min-width:250px;
+    margin:auto;
+    display:table;
+    text-align:center;
+}
+
+.form-section input[type="checkbox"]:checked + label:before {
+    background: #fff;
+    color: #333;
+    content: "\2713";
+    text-align: center;
+}
+.form-section label input{
+    margin-top:0;
+    margin-bottom:0;
+    margin-right:2px;
+    vertical-align:middle;
+    font-weight:normal;
+}
+.form-section a i.fa-check{
+    color:#00CC00;
+}
+.form-section .labels .single-label{
+    float:left;
+    width:100%;
+    margin-bottom:20px;
+}
+.form-section .labels .single-label label{
+    float:left;
+    margin-bottom:0;
+    line-height:34px;
+}
+.form-section .labels .single-label label:before{
+    top:9px;
+}
+.form-section .labels .single-label input{
+    float:left;
+    width:auto;
+}
+
+.ajax-loader img {
+    width:  100%!important;
+    height: auto!important;
+    margin: 0 auto;
+}
+.ajax-loader{
+
+    display:none;
+
+}
+div#answer1 input {
+    position: relative;
+    top: 3px;
+    margin-right: 8px;
+}
+input.form-control.btn {
+    background: #ed1f4f;
+    border: 1px solid #ed1f4f;
+    color: #fff;
+    width: auto;
+    min-width: 250px;
+    margin: auto;
+    display: table;
+    text-align: center;
+}
+
+.form-section h2 {
+    font-size: 25px;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: 900;
+    margin : 0 auto;
+
+
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+
+h2#payment {
+    font-size: 35px!important;
+    background-color: #0e143e;
+    color: white;
+    width: 100%;
+}
+h3#fail {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #a94442!important;
+    background-color: #f2dede;
+    border-color: #3d262a;
+    width: 50%;
+    padding-bottom: 27px;
+    margin-top: 65px;
+}
+.form-section p {
+    margin-bottom: 40px;
+}
+h3#success {
+
+
+
+
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin-top: 70px;
+    padding-bottom: 15px;
+}
+

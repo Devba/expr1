@@ -22,7 +22,10 @@ function getrespay(url){
 
 
 
-$('#bhive').click(function () {
+$('#bhive').click(async function () {
+    if ($("#keychname").val()==""){
+    Swal.fire("Please enter a valid user");
+    return}
   try {
     hive_keychain.requestHandshake(function () {
       console.log('Handshake received!');
@@ -34,7 +37,7 @@ $('#bhive').click(function () {
     }
     
 
-try { var r=hive_keychain.requestEncodeMessage(
+try { var r= await hive_keychain.requestEncodeMessage(
   $("#keychname").val(),
   "hoamanager",
   "#prueba ",
@@ -43,10 +46,14 @@ try { var r=hive_keychain.requestEncodeMessage(
     console.log('main js response - verify key');
 
     console.log(response);
-    if (response.success){
+    if (response.success){ // and response="OK"
       miform.html="Confirmed! , Wait while retrieving account info from server "
       Swal.fire(miform);
       Swal.showLoading();
+        console.log("after bhive");
+        let user=$("#keychname").val()
+        let url="/checkKYlogin?user="+user
+        let mres=getrespay(url);
 
     }else{
       swnofounde.html="error dont have priviledges ";
@@ -59,10 +66,7 @@ try { var r=hive_keychain.requestEncodeMessage(
 );} catch(error){
   console.log(error)
 }
-console.log("after bhive");
-user=$("#keychname").val()
-url="/checkKYlogin?user="+user
-mres=getrespay(url);
+
 //Swal.close(miform)
 
 

@@ -17,4 +17,10 @@ router.get('/sw2res', async function(req, res, next) {
 });
 
 
+router.get('/ccard', async function(req, res, next) {
+
+    res.render('cardpayments/ccard');
+
+});
+
 module.exports = router;
