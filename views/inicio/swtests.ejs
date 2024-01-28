@@ -1,9 +1,69 @@
 <script>
 var html=`
+
 <div class="container">
-    <div style="margin-top: 40px;">
+ 
+
+
+    <div style="margin-top: 20px;">
     <center><h1>HOA Login Form </h1></center></div>
-    <p>HOA - EasyPay is an electronic Credit Card payment service powered by {{banktext}}, an accredited and secure international Credit Card payment service and administrated by   HOA-e-Solutions, LLC.  For  PRIVACY Details see the the PRIVACY POLICY button below.</p>
-    <p>With HOA - EasyPay you can pay your Annual Dues, Special Assessments, and any Fines or Late Fees via any Credit Card.  </p>
-    </div>`
+     <p>With HOA - EasyPay you can pay your Annual Dues, Special Assessments, and any Fines or Late Fees via any Credit Card.  </p>
+   
+    </div>
+
+    
+    
+    `;
+
+    var miform={
+    html:html,
+    allowOutsideClick: false,
+      allowEscapeKey: false,
+    //title: 'Welcome to EasyPay',
+    text: 'Please insert the HOA License ',
+    icon: 'success',
+    showCancelButton: false,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, send me there!',
+    input: "text",
+    inputLabel: "Please enter the License associated to your HOA",
+    inputAttributes: {
+      
+        //required: 'true'
+      },
+    icon:"success",
+
+  preConfirm: () => {
+    var lic=document.getElementById('swal2-input').value
+    Swal.showLoading();
+    if (lic) {
+      //var res=await loadDoc(lic)
+      Swal.hideLoading();
+         // Handle return value 
+      } else {
+        //Swal.hideLoading();
+        var ntext=`<div class="alert alert-danger" role="alert">
+          Please type a License in the box  !
+        </div>`;
+        Swal.showValidationMessage(ntext)   
+      }
+      
+      
+
+  }};
+  /*
+ miform.then(function(result) {
+   if (result.isConfirmed) {
+    //callhome();
+    var res=loadDoc(result.value);
+     //  Swal.showValidationMessage("algo ha pasado");
+    console.log("2222")
+     //location.assign("https://stackoverflow.com/")
+   }
+ })
+*/
+
+ var miform2={icon: 'success'};
+    
 </script>

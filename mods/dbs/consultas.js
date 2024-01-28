@@ -9,6 +9,13 @@ class Post {
 
         return db.execute(sql)
     }
+    static  checkKYlogin(acc){
+        
+
+        let sql="SELECT * FROM ResidentsPayable where trim(KCuser)=trim('" +acc+"')";
+
+        return db.execute(sql)
+    }
 
 
     static  findById(id){

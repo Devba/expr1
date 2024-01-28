@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>Hive Keychain</title>
   </head>
 
@@ -547,6 +548,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/hive/keychain/main.js?v=a"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
 
 // Send Handshake event
@@ -958,7 +961,20 @@ $('#sw-handshake').click(function () {
       },
     );
   });
+  $( document ).ready(function() {
+    console.log( "ready!" );
+    if (typeof(hive_keychain)=='undefined')
+  {Swal.fire("no hay hive")}
 
+
+});
+ 
+    
+
+ 
+
+
+  
     </script>
   </body>
 </html>

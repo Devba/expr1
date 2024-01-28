@@ -8,6 +8,7 @@
   "dependencies": {
     "@hiveio/keychain": "^1.0.7",
     "@rodrigogs/mysql-events": "^0.6.0",
+    "@sweetalert2/theme-borderless": "^5.0.16",
     "adaro": "~1.0.4",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -26,9 +27,7 @@
     "mysql2": "^3.7.0",
     "pug": "^3.0.2",
     "rsvp": "^4.8.5",
+    "sweetalert2": "^11.10.4",
     "xmlhttprequest": "^1.8.0"
   }
-  
-    
-  
 }
