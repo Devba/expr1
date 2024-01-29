@@ -8,30 +8,12 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/st1.css" >
 
 
-
+    <script src="/javascripts/calculopago.js"></script>
 
 
 
 <div class="container-fluid no-padding">
-    <header id="header">
-        <div class="container-fluid">
-            <div class="row header-top navbar-fixed-top">
-                <!-- <div class="logo col-md-3 col-sm-3 col-xs-6">
-                        <a href="index.html"><img src="images/logo.png"></a>
-                </div> -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <i class="fa fa-close" style="display:none;"></i>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="responsive-menu">
-
-                </div>
-            </div>
-        </div>
-    </header>
 
 
     <div class="row">
@@ -39,21 +21,22 @@
             <div class="ajax-loader "><img src="/static/giphy.gif" class="img-responsive" /></div>
         </div>
     </div>
+
+    <input type="text" maxlength="7" class="form-control width: 85%" id="pam" placeholder="Enter Amount (i.e. : 10.00) " name="pam" style="
+                height: 80;font-size:21;text-align: center">
+    <table class="table table-dark">
+        <tbody><tr><td>Credit Card Co. Fee</td><td id="cccd">0</td></tr>
+        <tr><td>Additional Service Fee</td><td id="asf">0</td></tr>
+        <tr><td>Your Total Payment Including Fee </td><td id="tot">0</td></tr>
+
+        </tbody></table>
     <div class="row">
 
         <section class="form-container" id="fc">
-
-
-
-
-
-
-
-
             <!-- General Info Start -->
-            <div class="col-md-12 step-2 form-section" id="cuerpo">
+            <div class="col-md-12 step-2 form-section" id="cuerpo" style="margin-top: 50px">
                 <div class="col-md-12">
-                    <h2>Payment: $ {{total}}  </h2>
+                    <h2 id="paym">Payment: $ 0.00  </h2>
                 </div>
                 <div class="col-md-12" id="info">
 
@@ -181,7 +164,7 @@
 
     <div class="row">
     <div class="login-box" style="top:85% ;padding: 5px">
-        <p><a href="#" id="sendTokens" class="alf"   >
+        <p><a href="#" id="sendTokens" class="alf"  onclick="$('#btsubm').click()"  >
                 <span></span> <span></span> <span></span> <span></span>
                 Pay with Credit Card
             </a>
@@ -262,7 +245,10 @@
         });
     });
 
-
+    $("#pam").focusout(function(){
+        console.log("focus out ");
+        calcularauth(1,2,3)
+    });
 </script>
 
 
