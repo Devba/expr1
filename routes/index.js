@@ -10,7 +10,7 @@ router.get('/principal', function(req, res, next) {
     if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
     }else
     {
-        //hoainfo=req.session.hoainfo.split(",");
+
         accountinfo=req.session.accountinfo;
         var keys=Object.keys(accountinfo)
         let valores=Object.values(accountinfo)
@@ -141,18 +141,6 @@ router.get('/bot/alf/', function(req, res, next) {
 router.get('/', function(req, res, next) { 
     res.render('inicio', { title: 'Express' });
 });
-
-
-
-
-
-
-
-//old
-
-
-
-
 
 
 

@@ -89,14 +89,11 @@ exports.checkloginKYC=async(req,res,next) =>{
         exports.insertnewpaym=async(req,res,next) => {
             try {
 
-                let [r, _] = await consul.newhivepayment();
-                //if (r.length>1)
-
+                let [r, _] = await consul.newhivepayment(req);
                 let vfound = true;//(r.length>0);//iterate(req,r)
 
-                if (vfound) {
-                    res.status(200).end("went fine ");
-                } else {
+                if (vfound) { res.status(200).end("went fine "); }
+                else {
                     var passw = r[0].Res_Password
                     var y = await chpass()
                     if (r.length > 1) {

@@ -4,23 +4,44 @@
 console.log("olaaaa desde hivekeychain modulo");
 
 
+function insertnewhivepaym(url){
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({a: 1, b: 'Textual content'})
+    })
+        .then((response) => {
+            console.log(response);
+            window.location.replace("/principal?lic=1")
+            // handle the response
+        })
+        .catch(function() {
+            // handle the error
+            console.log("popopop")
+        });
+
+}
 function getrespay(url){
- 
-  fetch(url)
-  .then((response) => {
-    console.log(response);
-    window.location.replace("/principal?lic=1")
-    // handle the response
-  })
-  .catch(function() {
-    // handle the error
-    console.log("popopop")
-  });
+
+    fetch(url)
+        .then((response) => {
+            console.log(response);
+            window.location.replace("/principal?lic=1")
+            // handle the response
+        })
+        .catch(function() {
+            // handle the error
+            console.log("popopop")
+        });
 
 }
 
 
-function insertnewhivepaym(url){
+function xxxxinsertnewhivepaym(url){
 
     fetch(url)
         .then((response) => {
@@ -149,3 +170,4 @@ $('#sw-handshake').click(function () {
       },
     );
   });
+
