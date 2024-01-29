@@ -82,12 +82,34 @@ exports.checkloginKYC=async(req,res,next) =>{
             req.session.accountinfo=r[0];
             res.status(200).end("OK");
 
+        }  }catch(error){res.send(error.message)}
+   };
+
+
+        exports.insertnewpaym=async(req,res,next) => {
+            try {
+
+                let [r, _] = await consul.newhivepayment();
+                //if (r.length>1)
+
+                let vfound = true;//(r.length>0);//iterate(req,r)
+
+                if (vfound) {
+                    res.status(200).end("went fine ");
+                } else {
+                    var passw = r[0].Res_Password
+                    var y = await chpass()
+                    if (r.length > 1) {
+                        console.log("ojo , hay mas de una cuenta ")
+                    }
+
+                    req.session.accountinfo = r[0];
+                    res.status(200).end("OK");
+
+                }
+
+
+            } catch (error) {
+                res.send(error.message)
+            }
         }
-
-
-
-
-
-
-    } catch(error){res.send(error.message)}
-};

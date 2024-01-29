@@ -26,7 +26,7 @@ router.get('/principal', function(req, res, next) {
 });
 
 
-router.all('/newpayment', function(req, res, next) {
+router.all('/insertnewhivepaym', function(req, res, next) {
     //req.session.destroy();
     /*
     if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
@@ -37,6 +37,7 @@ router.all('/newpayment', function(req, res, next) {
 
 
     }*/
+    var d =  dbbbLogin.insertnewpaym(req,res,"console.log('iii')")
     res.status(200).end("aqui")
 });
 

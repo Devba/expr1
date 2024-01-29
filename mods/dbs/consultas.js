@@ -78,9 +78,9 @@ class Post {
     //sql="INSERT INTO `MasterTransactionTable` (`fdate`, `TransactionID`, `Amt`, `TransactionFeeAmount`,  `TotalAmt`, `PaymentType`, `PaymentTypeDetail`, `PropertyReferenceID`, `ResidentReferenceID`, `SecondaryResidentID`, `ResidentName`, `Status`, `ExternalInvoiceID`, `ReturnCode`, `PaymentReferenceID`, `RefundTransactionID`, `RefundAmount`, `RefundDate`, `RefundStatus`, `Code`, `Message`,`squarefee`) VALUES "
    // sql=sql +"('%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s', NULL, NULL, 'status', 'external invoice', 'Return Code', NULL, NULL, NULL, NULL, NULL, NULL, NULL,'%s')"%\
     //    (vtime,vtid,round(float(session["baseamount"]),2),round(float(fee)/100),session["total"],"ccAuth","Auth Paym",session["res"][0][0],session["res"][0][1],squarefee)
-    
-      //  let r=db.execute(sql);
-      //  return r
+    sql="INSERT INTO `MasterTransactionTable` (`fdate`, `TransactionID`, `Amt`, `TransactionFeeAmount`, `TotalAmt`) VALUES (1,2,3,4,5) "
+       let r=db.execute(sql);
+        return r
     }
 }
 
