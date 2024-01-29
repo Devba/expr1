@@ -10,7 +10,7 @@ router.get('/principal', function(req, res, next) {
     if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
     }else
     {
-        //hoainfo=req.session.hoainfo.split(",");
+
         accountinfo=req.session.accountinfo;
         var keys=Object.keys(accountinfo)
         let valores=Object.values(accountinfo)
@@ -26,7 +26,7 @@ router.get('/principal', function(req, res, next) {
 });
 
 
-router.all('/newpayment', function(req, res, next) {
+router.all('/insertnewhivepaym', function(req, res, next) {
     //req.session.destroy();
     /*
     if(req.session.hoainfo==undefined){ res.render('inicio', { title: 'Please log in ' });
@@ -37,6 +37,7 @@ router.all('/newpayment', function(req, res, next) {
 
 
     }*/
+    var d =  dbbbLogin.insertnewpaym(req,res,"console.log('iii')")
     res.status(200).end("aqui")
 });
 
@@ -104,6 +105,10 @@ router.all('/checkKYlogin', function(req, res, next) {
     //let x=loadDoc('https://api.publicapis.org/entries', "myFunction"); //res.render('index', { title: 'Express' });
     //ddbb.main();
     var l=req.query.user;
+    if(l==""){
+        console.log("no account in CheckKY")
+        res.status(200).end("Wrong account")
+    }
     req.query={ln:l,LicenseType:"HOA"}
     var d =  dbbbLogin.checkloginKYC(req,res,"console.log('iii')")
     //res.send(d)
@@ -136,18 +141,6 @@ router.get('/bot/alf/', function(req, res, next) {
 router.get('/', function(req, res, next) { 
     res.render('inicio', { title: 'Express' });
 });
-
-
-
-
-
-
-
-//old
-
-
-
-
 
 
 

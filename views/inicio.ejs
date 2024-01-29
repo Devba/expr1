@@ -2,16 +2,11 @@
 <html>
     <%- include('layout2', {user: "lll"}); %>
     <%- include('inicio/swtests', {user: "lll"}); %>
-     
 
 <link rel='stylesheet' href='/stylesheets/style.css' />
-
-
 <script>
-   
-
-
-        function loadDoc(req) {
+   //This is the landing web page
+       function loadDoc(req) {
           Swal.showLoading();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -19,7 +14,6 @@
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.response);
                     if (this.response=="Not a valid License"){                      //Swal.hideLoading();
-                       
                         miform.icon="error"
                         Swal.fire(miform).then(function(result) {
                             if (result.isConfirmed) {
@@ -27,12 +21,9 @@
                               var res=loadDoc(result.value);                      //  Swal.showValidationMessage("algo ha pasado");
                               console.log(res.value)                              //location.assign("https://stackoverflow.com/")
                             }
-                          })
-                        
+                        })
                         Swal.showValidationMessage(this.response + ",Please Log in again ")
-
-                     
-                    }else{                           
+                      }else{
                     window.location.replace("/start?lic=1")
                     }
       
@@ -46,30 +37,32 @@
         }
    
     
-console.log("klkl");
-$( document ).ready(function() {
 
+$( document ).ready(function() {
 
     console.log( "ready!" );
     var tempDivElement = document.createElement("div");
-
-    // Set the HTML content with the given value
     tempDivElement.innerHTML = miform;    //var mf=miform.replace(/(\r\n|\n|\r)/gm, "");
 
 
     Swal.fire(miform).then(function(result) {
         if (result.isConfirmed) {
-          //callhome();
-          var res=loadDoc(result.value);
-          //  Swal.showValidationMessage("algo ha pasado");
-          console.log("swal back log ")
-          //location.assign("https://stackoverflow.com/")
+          var res=loadDoc(result.value);       //  Swal.showValidationMessage("algo ha pasado");
+          console.log("swal back log ")//location.assign("https://stackoverflow.com/")
         }
       })
       })
 
-
-
-
 </script>
+    <div class="container-fluid no-padding">
+
+
+
+    <div class="row">
+        <div class="col-md-8 col-mod-offset-3">
+            fdkjkdjck
+            <div class="ajax-loader "><img src="/static/giphy.gif" class="img-responsive" /></div>
+        </div>
+    </div>
+    </div>
 </html>

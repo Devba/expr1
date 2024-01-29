@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>HOA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?ver=3.1">
+    <link rel="stylesheet" href="style.css?ver=3.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700|Poppins:600" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/st1.css" >
+
+
+
+
+
+</head>
+
+
+<body>
+<div class="container-fluid no-padding">
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row header-top navbar-fixed-top">
+                <!-- <div class="logo col-md-3 col-sm-3 col-xs-6">
+                        <a href="index.html"><img src="images/logo.png"></a>
+                </div> -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <i class="fa fa-close" style="display:none;"></i>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="responsive-menu">
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="row">
+        <div class="col-md-8 col-mod-offset-3">
+            <div class="ajax-loader "><img src="/static/giphy.gif" class="img-responsive" /></div>
+        </div>
+    </div>
+    <div class="row">
+
+        <section class="form-container" id="fc">
+
+
+
+
+
+
+
+
+            <!-- General Info Start -->
+            <div class="col-md-12 step-2 form-section" id="cuerpo">
+                <div class="col-md-12">
+                    <h2>Payment: $ {{total}}  </h2>
+                </div>
+                <div class="col-md-12" id="info">
+
+                    <p> Please provide the billing & payment info below: </p>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="response_song">
+                        <div class="alert alert-danger" role="alert" id="rs">
+                            <p>This is a danger alert </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="response_song_error"></div>
+
+                <!-- Start of Form -->
+                <form  name="f1" method="post" enctype="multipart/form-data" autocomplete="off" id="form1">
+                    <div class="col-md-12 information">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" required="" placeholder="Card Holder's Name" name="firstName" id="name" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" placeholder="Card Number" minlength="16" maxlength="16" name="creditCardNumber" id="cardno" class="form-control" required="required">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" required="" placeholder="enter mail :a@b.com" name="email" id="email" class="form-control">
+
+                                <!--<select class="form-control" name="creditCardType">
+
+                                                <option disabled="" selected=""> Card Type</option>
+                                    <option  value="MasterCard">Master Card</option>
+                                    <option  value="Visa">Visa Card</option>
+                                    <option  value="Amex">American Express</option>
+                                    <option  value="Discover">Discover</option>
+
+                            </select>!-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-control" name="expDateMonth">
+                                    <option disabled="" selected="">Month</option>
+
+                                    <option  value="1"> 1 </option>
+                                    <option  value="2"> 2 </option>
+                                    <option  value="3"> 3 </option>
+                                    <option  value="4"> 4 </option>
+                                    <option  value="5"> 5 </option>
+                                    <option  value="6"> 6 </option>
+                                    <option  value="7"> 7 </option>
+                                    <option  value="8"> 8 </option>
+                                    <option  value="9"> 9 </option>
+                                    <option  value="10"> 10 </option>
+                                    <option  value="11"> 11 </option>
+                                    <option  value="12"> 12 </option>
+
+
+                                </select>
+
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="expDateYear" required="required">
+
+                                    <option disabled="" selected="">Year</option>
+
+                                    <option  value="2022"> 2022 </option>
+                                    <option  value="2023"> 2023 </option>
+                                    <option  value="2024"> 2024 </option>
+                                    <option  value="2025"> 2025 </option>
+                                    <option  value="2026"> 2026 </option>
+                                    <option  value="2027"> 2027 </option>
+                                    <option  value="2028"> 2028 </option>
+                                    <option  value="2029"> 2029 </option>
+                                    <option  value="2030"> 2030 </option>
+
+
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" maxlength="3" name="cvv2Number" id="cvv" placeholder="CCV"  required="required" class="form-control">
+                                <input type="hidden" name="amount" id="amount" placeholder="enter amount ">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 save-cancel">
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+
+
+
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-2">
+
+                                        <!-- Animated button -->
+                                        <a class="animated-btn text-white" onclick='$("#btsubm").click()' href="#"> CHECK OUT <span class="glyphicon glyphicon-log-out"></span></a>
+                                    </div>
+                                </div>
+                                <div class="row" style="visibility: hidden;">
+
+                                    <input type="submit" class="form-control btn" value="CheckOut" id="btsubm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- General Info End -->
+                </form>
+            </div>
+    </div>
+
+    <div class="col-md-12"></div>
+
+    <div class="response_song">
+        <div class="alert alert-success" role="alert" id="su">
+            <p>This is a success alert </p>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<footer id="footer">
+
+</footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/custom.js?ver=1.5"></script>
+<script type="text/javascript">
+    $(window).resize(function(){
+        $('.responsive-menu').removeAttr('style');
+        $('button.navbar-toggle').removeClass('white-bg');
+    });
+
+</script>
+<script>
+    $(function() {
+        $("#rs").hide()
+        $("#su").hide()
+        $("#form1").submit(function(e){
+
+            e.preventDefault();
+            f1= $("#form1") [0]
+            var fd = new FormData(f1);
+            var fd2 = new FormData();
+            //var fd2=new FormData($("#form1"))
+            fd2.append("xxxx","eeeeeee") ;
+            console.log(fd);
+            $('#fc').hide();
+            j3={};
+            j3.name=$('#name').val();
+            j3.card=$('#cardno').val();
+            j3.expmonth=$("[name='expDateMonth']").val();
+            j3.expyear=$("[name='expDateYear']").val();
+            j3.cvv=$("[name='cvv2Number']").val();
+            j3.email=$("[name='email']").val();
+
+            $('.ajax-loader').show();
+            $.ajax({
+
+                url:'/apiauth/step3',
+                type: 'POST',
+                data: JSON.stringify(j3),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success:function(result){
+                    $('.ajax-loader').hide();
+                    res=JSON.parse(result)
+                    if(res[0]=="OK") {
+                        $("#fc").show();
+                        $("#cuerpo").hide();
+                        finalstr="Your payment was successful. You will receive an Email soon showing your payment details ,Thank you for using HOA-EasyPay,good bye!";
+                        finalstr= "Your payment was successful. \n You will receive an Email soon showing your payment details.  \n  Thank you for using HOA-EasyPay.   Good bye!"
+                        $("#su").html(finalstr);
+                        //$("#su").html(res[1]);
+                        $('#su').show() ;
+
+
+                    }
+                    else{
+                        //$(".response_song_error").css("display","block");
+                        //$(".response_song_error").html(res[1]);
+                        $("#rs").html(res[1]);
+                        $('#rs').show();
+                        $('#fc').show();
+                    }
+
+                },
+                complete: function(){
+                    //$('.ajax-loader').hide();
+                }
+
+            });
+        });
+    });
+
+
+</script>
+</body>
+</html>
+
+
