@@ -30,8 +30,6 @@ class Q {
     }
 }
 
-
-
 const chpass=async()=>{
     let v=await Q.newhivepayment()
     console.log(v)

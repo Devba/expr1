@@ -1,25 +1,27 @@
-
-
 var app = require('../app3');
 var debug = require('debug')('expr1:server');
 var http = require('http');
-
-
-var port = 5000;//normalizePort(process.env.PORT || '5000');
-//app.set('port', 5001);
+var port = 5000;//normalizePort(process.env.PORT || '5000');//app.set('port', 5001);
 console.log("Port serving ----" + port);
 
 var server = http.createServer(app);
-
 app.use("/checklic2",require("../mods/dbs/chlicRoutes"));
 
-/** * Listen on provided port, on all network interfaces. */
-
-server.listen(port);
+server.listen(port);/** * Listen on provided port, on all network interfaces. */
 server.on('error', onError);
 server.on('listening', onListening);
 
 /** * Normalize a port into a number, string, or false. */
+
+
+
+
+
+
+
+
+
+
 
 function normalizePort(val) {
     var port = parseInt(val, 10);

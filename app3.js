@@ -15,9 +15,7 @@ var session = require('express-session');
 app.use(express.static(path.join('/views/hive/keychain')));
 
 app.use( session( {
-    /* Aquí irían los atributos de nuestra sesión, como claves,     * cómo se guarda, tiempo de expiración, etc...
-     */
-    secret: 'your-ayayayaa-key',    resave: false,    saveUninitialized: true,
+      secret: 'your-ayayayaa-key',    resave: false,    saveUninitialized: true,
 }));
 
 // view engine setup
@@ -27,10 +25,8 @@ app.use(logger('dev'));app.use(logger('tiny'));
 
 app.use(express.json());
 //app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-//app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(express.urlencoded());
+app.use(cookieParser());//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: false }));//app.use(express.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,15 +41,14 @@ app.use(upload.array());
 
 app.use("/checklic",require("./mods/dbs/chlicRoutes"));
 app.use('/', indexRouter);
-
-//test routers
-
 app.use('/su', signuprouter);//app.use('/users', usersRouter);
 app.use("/hive",require("./routes/hiverouter"));
 app.use("/tests",require("./routes/tests"));
 app.use("/man",require("./routes/manutils"));
 
 // catch 404 and forward to error handler
+
+
 
 app.use(function(req, res, next) {    next(createError(404));});
 

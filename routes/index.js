@@ -1,5 +1,4 @@
 var express = require('express');
-
 var router = express.Router();
 var ddbb = require('../mods/dbs/checklicControl');
 var dbbbLogin = require('../mods/dbs/checkloginControl');
@@ -138,8 +137,13 @@ router.get('/bot/alf/', function(req, res, next) {
     }
 
 })
-router.get('/', function(req, res, next) { 
-    res.render('inicio', { title: 'Express' });
+router.get('/', function(req, res, next) {
+    if(req.session.hoainfo==undefined){
+    res.render('inicio', { title: 'Express' });}
+    else {
+        res.render('start', { title: 'Express' })
+        //res.status(200).end("<script>console.log('chachi')</script>")
+    }
 });
 
 
