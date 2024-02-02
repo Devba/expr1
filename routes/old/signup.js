@@ -6,7 +6,7 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 const express = require("express");
 var router = express.Router();
-var ddbb=require("../mods/dbs/control2")
+var ddbb=require("../../mods/dbs/control2")
 
 
 

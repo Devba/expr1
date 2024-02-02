@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../layout2', {user: "lll"}); %>
+
+<div class="container-fluid">
+
+<form action="/tests/newhoa" method="POST" class=" g-3 needs-validation" style="margin-top: 100px" novalidate>
+    <h1>Insert a new hoa in the database</h1>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Corporate name :</label>
+        <input type="text" class="form-control" id="validationCustom01" value="Mark"  name="lClientName" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Billing name</label>
+        <input type="text" class="form-control" id="validationCustom02" value="Bill name" name ="lBillingName" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-md-3">
+    <label for="startDate">Start</label>
+    <input id="startDate" class="form-control" value="03-01-2024" name ="fechaini" type="date" required/>
+    </div>
+
+    <div class="col-md-3">
+        <label for="edate">Start</label>
+        <input id="edate" class="form-control" value="03/01/2025"  name ="fechafin" type="date" required/>
+    </div>
+    <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationCustom03" name="city "required>
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+    </div>
+
+
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">License Type</label>
+            <select class="form-select" id="validationCustom04"  name="LicenseType"required>
+                <option selected  value="HOA" name="HOAtype">HOA</option>
+                <option>...</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+
+    <div class="col-md-3">
+        <label for="Licsize" class="form-label">License Size</label>
+        <select class="form-select" id="Licsize"  name="Licsize"required>
+            <option selected  value="HOA_Lic_1" name="HOAtype">HOA_Lic_1</option>
+            <option value="HOA_Lic_2" >HOA_Lic_2</option>
+            <option value="HOA_Lic_3" >HOA_Lic_3</option>
+            <option value="HOA_Lic_4" >HOA_Lic_4</option>
+            <option value="HOA_Lic_5" >HOA_Lic_5</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationCustom05"  name="zip" required>
+        <div class="invalid-feedback">
+            Please provide a valid zip.
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Create new HOA</button>
+    </div>
+
+
+</div>
+
+<script>
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+</script>
+
+
+
+
+</html>
