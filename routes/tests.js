@@ -3,6 +3,13 @@ const chpassw = require("../public/javascripts/chpw2");
 //var KeychainSDK= require("@hiveio/keychain");
 var router = express.Router();
 
+
+router.get('/camara', async function(req, res, next) {
+
+
+    //const login =  await keychain.login();
+    res.render('tests/camara');
+});
 router.get('/sw2', async function(req, res, next) {
 
 
