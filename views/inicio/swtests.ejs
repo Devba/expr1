@@ -3,13 +3,20 @@ var html=`
 
 <div class="container">
      <div style="margin-top: 20px;">
-    <h1>HOA Login Form </h1>
+    <h1>Welcome To Easypay</h1>
      <p>With HOA - EasyPay you can pay your Annual Dues, Special Assessments, and any Fines or Late Fees via any Credit Card.  </p>
        </div>
+<p>A Service Fee applies and the fees will be added to the total amount charged. The service fees will be calculated and shown on the following pages for your review prior to making payment
+</p>
 
-    
+     <div class="alert alert-primary" style="text-align: center" role="alert">
+        <h3>Please insert the HOA License</h3>
+    </div>
+ </div>
     `;
 
+var alerta=`
+   `
     var miform={
     html:html,
     allowOutsideClick: true,
@@ -23,7 +30,7 @@ var html=`
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes, send me there!',
     input: "text",
-    inputLabel: "Please enter the License associated to your HOA",
+
     inputAttributes: {
       
         //required: 'true'

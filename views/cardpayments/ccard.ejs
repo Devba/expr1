@@ -1,6 +1,6 @@
 
 
-    <link rel="stylesheet" href="css/style.css?ver=3.1">
+    <link rel="stylesheet" href="/stylesheets/style.css?ver=3.1">
     <link rel="stylesheet" href="style.css?ver=3.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700|Poppins:600" rel="stylesheet">
@@ -24,8 +24,8 @@
 
     <input type="text" maxlength="7" class="form-control width: 85%" id="pam" placeholder="Enter Amount (i.e. : 10.00) " name="pam" style="
                 height: 80;font-size:21;text-align: center">
-    <table class="table table-dark">
-        <tbody><tr><td>Credit Card Co. Fee</td><td id="cccd">0</td></tr>
+    <table class="table table-dark" style="margin-top: 20px ">
+        <tbody style="color:palevioletred"><tr><td>Credit Card Co. Fee</td><td id="cccd">0</td></tr>
         <tr><td>Additional Service Fee</td><td id="asf">0</td></tr>
         <tr><td>Your Total Payment Including Fee </td><td id="tot">0</td></tr>
 
@@ -247,7 +247,11 @@
 
     $("#pam").focusout(function(){
         console.log("focus out ");
-        calcularauth(1,2,3)
+        res=calcularauth(1,2,3)
+        if (res!=true){
+            Swal.fire(res)
+        }
+        //
     });
 </script>
 

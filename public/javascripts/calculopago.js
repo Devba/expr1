@@ -22,21 +22,24 @@ function calcularauth(factorfee,fixedfee,Payfees) {
     total = Math.round((( parseFloat($("#pam").val())/ffee) +fxfee)* 100) / 100
     //total =parseFloat($("#pam").val()) +val
     comision=evenRound(total-parseFloat($("#pam").val()),2)
-    if (Payfees=="True" ){
+
+    Payfees=true;
+    if (Payfees==true ){
 
         $("#cccd").text(comision)//evenRound(total),2
         $("#tot").text(total)}
     else{
         $("#tot").text($("#pam").val())
         //$("#pam").val( evenRound($("#pam").val(), 2))
-        jQuery("#cccd").text(0)    //val2 = +val * 0.01    //val2 = evenRound(val2, 2)
-        jQuery("#cccd").text(0)
+        $("#cccd").text(0)    //val2 = +val * 0.01    //val2 = evenRound(val2, 2)
+
 
     }
     Swal.fire("Total cost including fees :" +  total.toString() + " $", "");
+    $("#paym").html("Payment :" +  total.toString() + " $")
 
 
-    return "True"  ;
+    return true  ;
 }
 
 
