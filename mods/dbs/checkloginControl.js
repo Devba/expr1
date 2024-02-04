@@ -40,7 +40,7 @@ exports.checklogin=async(req,res,next) =>{
         var vfound=iterate(req,r)
         
         if (!vfound){
-            res.status(201).end("Account is not correct");
+            res.status(200).end("Account is not correct");
         }else {
             var passw=r[0].Res_Password
             var  y=await chpass()

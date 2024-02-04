@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+const path = require("path");
 var upload = multer();
 var app = express();
 
@@ -17,7 +18,8 @@ app.use(bodyParser.json());
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
 //form-urlencoded
-
+//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static('public'))
 // for parsing multipart/form-data
 app.use(upload.array());
 app.use(express.static('public'));

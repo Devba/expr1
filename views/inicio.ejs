@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <%- include('layout2', {user: "lll"}); %>
+
+    <body style="visibility: hidden;">
     <%- include('inicio/swtests', {user: "lll"}); %>
 
-<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel='stylesheet' href='stylesheets/style.css' />
+
 <script>
+
    //This is the landing web page
        function loadDoc(req) {
           Swal.showLoading();
@@ -40,7 +44,8 @@
 
 $( document ).ready(function() {
 
-    console.log( "ready!" );
+    console.log( "inicio ready!" );
+
     var tempDivElement = document.createElement("div");
     tempDivElement.innerHTML = miform;    //var mf=miform.replace(/(\r\n|\n|\r)/gm, "");
 
@@ -53,7 +58,20 @@ $( document ).ready(function() {
       })
       })
 
+   let domReady = (cb) => { // para visibilizar el body
+       document.readyState === 'interactive' || document.readyState === 'complete'
+           ? cb()
+           : document.addEventListener('DOMContentLoaded', cb);
+   };
+
+   domReady(() => {
+       // Display body when DOM is loaded
+       document.body.style.visibility = 'visible';
+   });
+
+
 </script>
+
     <div class="container-fluid no-padding">
 
 
@@ -65,4 +83,5 @@ $( document ).ready(function() {
         </div>
     </div>
     </div>
+    </body>
 </html>

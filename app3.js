@@ -16,6 +16,9 @@ app.use(express.static(path.join('/views/hive/keychain')));
 
 app.use( session( {
       secret: 'your-ayayayaa-key',    resave: false,    saveUninitialized: true,
+    cookie : {
+        sameSite: 'strict', // THIS is the config you are looking for.
+    }
 }));
 
 // view engine setup
@@ -29,7 +32,9 @@ app.use(cookieParser());//app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.urlencoded({ extended: false }));//app.use(express.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname,'static')))
+app.use(express.static('../public'));
 
 app.set('views', path.join(__dirname, 'views'));
 console.log(path.join(__dirname, 'views'));

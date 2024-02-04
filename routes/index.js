@@ -76,7 +76,7 @@ router.get('/inicio', function(req, res, next) {
 let multer = require('multer');
 let upload = multer();
 
-router.post('/checklogin', upload.fields([]), async function(req, res, next) {
+router.post('/checklogin',  async function(req, res, next) {
     
     let chpassw=require("../public/javascripts/chpw2");
     let r=await chpassw.checklic()
