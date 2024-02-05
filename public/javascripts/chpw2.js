@@ -4,7 +4,7 @@
 
 exports.checklic=async(req,res,next) =>{
     try {
-        console.log("aqui");
+        console.log("loading checklic");
         
         
         const a1f20000passw="pbkdf2:sha256:260000$VDzddJNX7PeWPkpY$91bd426a799580bb9ea5175f039b96ee75e6f076c8d12b871623fbb7726f857b"

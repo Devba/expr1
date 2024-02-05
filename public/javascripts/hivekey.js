@@ -1,7 +1,7 @@
 
 
 
-console.log("olaaaa desde hivekeychain modulo");
+console.log("Loading hivekeychain modulo");
 
 
 function insertnewhivepaym(url){
